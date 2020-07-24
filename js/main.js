@@ -29,6 +29,8 @@ window.onload = function () {
         } else {
             alert('Por favor, ingrese un valor válido.');
         }
+
+        this.reset();
         e.preventDefault();
     }
 
@@ -39,8 +41,9 @@ function updateDashboardTask() {
     let tasks = JSON.parse(localStorage.getItem('task'));
     let divTask = document.getElementById('tasks');
     divTask.innerHTML = '';
-
+    
     if (tasks) {
+        document.getElementById('number-task').textContent = `Número de tareas: ${tasks.length}`;
         for (let [index, task] of tasks.entries()) {
             // let taskDesc = document.createElement('div');
             // taskDesc.classList.add('alert', 'alert-success');
